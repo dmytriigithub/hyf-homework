@@ -1,0 +1,399 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-family: 'Roboto', sans-serif;
+}
+.container {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+header {
+    background-color: #f9f9f9;
+}
+
+h1 {
+    padding-top: 60px;
+    font-size: 40px;
+    text-transform: uppercase;
+}
+
+h2 {
+    margin-top: 20px;
+    margin-bottom: 60px;
+    font-size: 19px;
+    color: #999999;
+    text-transform: lowercase;
+}
+
+nav {
+    background-color: #fff;
+}
+
+nav .menu {
+    display: flex;
+    align-items: center;
+    min-height: 70px;
+    list-style-type: none;
+}
+
+nav .menu__item {
+    margin-right: 40px;
+    font-size: 18px;
+    font-weight: 600;
+    text-transform: lowercase;
+    text-decoration: none;
+    color: #000;
+}
+
+.menu__item:hover {
+    color: #999999;
+}
+
+.wallpaper {
+    min-height: 475px;
+    background: url('../src/image/background.jpg') center center/cover no-repeat;
+}
+
+.wrap {
+    display: flex;
+    margin-top: 55px;
+}
+
+.block {
+    flex-basis: 33%;
+}
+
+.block__title {
+    font-size: 17px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.block__text {
+    margin-top: 35px;
+    font-size: 14px;
+    color: #555555;
+    
+}
+
+.block_big {
+    flex-basis: 66%;
+    margin-left: 100px;   
+}
+
+.block__title_big {
+    margin-top: -3px;
+    font-size: 30px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.block__text_big {
+    margin-top: 20px;
+    padding-right: 33px;
+    font-size: 19px;
+    
+}
+
+.gallery .logotypes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 50px;
+    list-style-type: none;
+}
+
+.logotypes .logotypes__item {
+    padding-right: 40px;
+}
+
+.logotypes .logotypes__item img {
+    height: 120px;
+    width: 120px;
+    margin-bottom: 100px;
+}
+
+footer {
+    background-color: #6836CD;
+}
+
+.footer-wrap {
+    display: flex;
+    padding-top: 65px;
+    padding-bottom: 100px;
+    color: white;
+}
+
+.footer-title {
+    margin-bottom: 30px;
+    font-size: 20px;
+    text-transform: uppercase;
+}
+
+.footer-box {
+    flex-basis: 25%;
+}
+
+.footer-text {
+    font-size: 15px;
+    font-weight: 100;
+    line-height: 1.75;
+}
+
+span {
+    font-weight: 600;
+}
+
+.footer__list {
+    list-style-type: none;
+    padding-right: 40px;
+}
+
+.footer__item {
+    text-decoration: none;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 1.75;
+}
+
+hr {
+    margin: 20px 0;
+    border-width: 0.5px;
+}
+
+iframe {
+width: 200px;
+height: 200px;
+border:0;
+/* allowfullscreen:"";
+loading="lazy"
+referrerpolicy="no-referrer-when-downgrade" */
+}
+
+.footer-dropdown {
+    display: none;
+}
+
+@media screen and (max-width: 1199px) {
+    .container {
+        width: 991px;
+    }
+    
+    .logotypes .logotypes__item img {
+        height: 100px;
+        width: 100px;
+    }
+
+    .footer-title {
+        font-size: 17px;
+    }
+    
+    .footer-text {
+        font-size: 13px;
+    }
+}
+
+
+@media screen and (max-width: 1024px) {
+    .container {
+        width: 768px;
+    }
+    
+    .block {
+        flex-basis: 33%;
+    }
+    
+    .block__title {
+        font-size: 15px;
+    }
+    
+    .block__text {
+        font-size: 13px;   
+    }
+
+    .block_big {
+        flex-basis: 66%; 
+    }
+
+    .block__title_big {
+        font-size: 25px;
+    }
+    
+    .block__text_big {
+        margin-top: 20px;
+        padding: 0;
+        font-size: 15px;    
+    }
+
+    .logotypes .logotypes__item img {
+        height: 70px;
+        width: 70px;
+    }
+
+    .footer-title {
+        font-size: 18px;
+    }
+
+    iframe {
+        width: 150px;
+        height: 150px;
+    }
+    
+    .footer-text {
+        font-size: 14px;
+        font-weight: 100;
+        line-height: 1.75;
+    }
+    
+    
+    .footer__list {
+        list-style-type: none;
+        padding-right: 40px;
+    }
+    
+    .footer__item {
+        font-size: 15px;
+      
+    }
+    
+    hr {
+        margin: 15px 0;
+    }   
+}
+
+@media screen and (max-width: 768px) {
+   .container {
+        width: 425px;
+    }
+
+    .header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    h1 {
+        font-size: 22px;
+    }
+    nav .menu {
+        justify-content: space-around;  
+    }
+
+    nav .menu__item {
+        margin: 0;
+        font-size: 17px;  
+    }
+
+    .wrap {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .block__title {
+        font-size: 24px;
+    }
+
+    .block_big {
+        margin: 0; 
+    }
+    
+    .block__title_big {
+        margin-top: 35px;
+        font-size: 24px;
+
+    }
+    
+    .block__text_big {
+        margin-top: 20px;
+        font-size: 14px;
+        
+    }
+    
+    .logotypes .logotypes__item {
+        padding-right: 20px;
+    }
+
+    .logotypes .logotypes__item img {
+      
+        margin-bottom: 50px;
+    }
+
+    .footer-wrap {
+        display: none;
+    }
+
+    .footer-dropdown {
+        display: flex;
+        flex-direction: column;
+        padding-top: 50px;
+    }
+
+    .footer-title {
+        background-color: #6836CD;
+        color: white;
+        font-size: 12px;
+        border: none;
+    }
+
+    .footer-box-dropdown {
+        display: flex;
+        flex-direction: column-reverse;
+        
+    }
+
+    .wrapper-dropdown {
+        display: none;
+        position: absolute;
+        background-color: #6836CD;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+    }
+
+    .dropdown-content {
+        color: white;
+        text-decoration: none;
+        display: block;
+    }
+
+
+    .footer-box-dropdown:hover .wrapper-dropdown {display: block;}
+
+    .footer-box-dropdown:hover .footer-title {color: #999999;}
+}
+
+@media screen and (max-width: 425px) {
+    .container {
+        width: 310px;
+    }
+    
+    h1 {
+        text-align:  center;
+        font-size: 22px;
+    }
+
+    .block__title {
+        text-align:  center;
+    }
+
+    .block__text {
+        text-align:  center;
+    }
+
+    .block__title_big {
+        text-align:  center;
+    }
+
+    .block__text_big {
+        text-align:  center;
+    }
+
+
+}
+
