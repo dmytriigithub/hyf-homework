@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>week 3</title>
+    <link rel="stylesheet" href="../src/css/style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <p>Logo</p>
+                </div>
+                <div class="navigation">
+                    <p>Navigation</p>
+                </div>
+            </nav>
+            <a href="#step-one" class="start">
+                <h1>Sign up to your customtailor.com</h1>
+            </a>
+        </div>
+    </header>
+
+    <main>
+        
+        <section class="step" id="step-one">
+            <div class="container">
+                <p class="description">We can’t wait to help you improve your life-style and gain the attention from people around you! <br><br>
+                Sign up below to save up to 70% on apparel, hand-bags and cosmetics. Our agents are busy picking the best offers that match your preferences and style. Every week we will send you a hand-picked selection - we just need to know a few details about your first…</p>
+
+                <h2 class="subheader">
+                    Step 1/4 - tell us who you are?
+                </h2>
+
+                <div class="progress">
+                    <label for="progress__bar" class="form__label">Progress</label>
+                    <progress class="progress__bar" max="100" value="15">15%</progress>
+                    
+                </div>
+
+                <form action="#" method="get">
+                    <p class="description">
+                        Nice to meet you. Let’s spend a minute to get to know each other? Please enter the following:
+                    </p>
+                    <div class="user-data">
+                        
+                        <div class="name">
+                            <div class="user-data__item">
+                                <label for="firstName" class="form__label">First name*</label>
+                                <input tabindex="1" name="firstname" type="text" class="form__input" id="firstName">
+                            </div>
+        
+                            <div class="user-data__item">
+                                <label for="lastName" class="form__label">Last name*</label>
+                                <input tabindex="2" name="lastname" type="text" class="form__input" id="lastName">
+                            </div>
+                        </div>
+
+                        <div class="country">
+                            <div class="user-data__item">
+                                <label for="country" class="form__label">Country*</label>
+                                <select tabindex="3" name="country" class="form__input" id="country">
+                                    <option value="usa">USA</option>
+                                    <option value="denmark">Denmark</option>
+                                    <option value="ukraine">Ukraine</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="address">
+                            <div class="user-data__item">
+                                <label for="streetAddress" class="form__label">Street address*</label>
+                                <input tabindex="4" name="streetaddress" type="text" class="form__input" id="streetAddress">
+                            </div>
+    
+                            <div class="user-data__item">
+                                <label for="postCode" class="form__label">Post code*</label>
+                                <input tabindex="5" name="postcode" type="text" class="form__input" id="postCode">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="profile-description">
+                        <div class="profile-description__wrap">
+                            <label for="profileDescription" class="form__label">Profile description</label>
+                            <p class="profile-description__text">
+                                Please provide a short description of yourself to be displayed on our social community pages
+                            </p>
+                        </div>
+                        
+                        <textarea name="profiledescription" id="profileDescription" class="form__textarea"></textarea>
+                    </div>
+
+                    <div class="shipping-address">
+                        <p class="description">
+                            Use the same address for billing and shipping? Uncheck below to fill out a separate shipping address.
+                        </p>
+                        <div class="select_items">
+                            <label for="shipping" class="form__label">Shipping address</label>
+                            <input tabindex="6" type="checkbox" name="shipping" value="yes" id="shipping" class="select">
+                        </div>
+                    </div>
+
+                    <div class="step-button step-button-one">
+                        <a href="#step-two" class="button-link">
+                            <button tabindex="7" type="button">Next step</button>
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+
+
+
+
+        <section class="step" id="step-two">
+            <div class="container">
+                <h2 class="subheader">
+                    Step 2/4 - how can we reach you?
+                </h2>
+
+                <div class="progress">
+                    <label for="progress__bar" class="form__label">Progress</label>
+                    <progress class="progress__bar" max="100" value="25">25%</progress>
+                    
+                </div>
+
+                <form action="#" method="get">
+                    <p class="description">
+                        We will probably need to stay in touch somehow. Let is know how we can reach you?
+                    </p>
+                    <div class="user-data data-page-two">
+
+                        <div class="user-data__item">
+                            <label for="email" class="form__label">Email*</label>
+                            <input tabindex="8" name="useremail" type="text" class="form__input" id="email">
+                        </div>
+    
+                        <div class="user-data__item">
+                            <label for="password" class="form__label">Password*</label>
+                            <input tabindex="9" name="userpassword" type="password" class="form__input" id="password">
+                        </div>    
+
+                        <div class="user-data__item">
+                            <label for="reEnterPassword" class="form__label">Re-enter Password*</label>
+                            <input tabindex="10" name="reenterpassword" type="password" class="form__input" id="reEnterPassword">
+                        </div>
+
+                        <div class="user-data__item">
+                            <label for="phone" class="form__label">Phone</label>
+                            <input tabindex="11" name="userphone" type="tel" class="form__input" id="phone">
+                        </div>
+                    </div>
+
+                    <p class="description">
+                        I want to sign up for the newsletter
+                    </p>
+                    <div class="news">
+                        
+                        <div class="news__mark">
+                            <div class="user-data__item user-data__item_news">
+                                <label for="week" class="form__label">Weekly news</label>
+                                <input tabindex="12" name="news" type="radio" id="week" class="user-data__item_news_mark">
+                            </div>    
+    
+                            <div class="user-data__item user-data__item_news">
+                                <label for="month" class="form__label">Monthly news</label>
+                                <input tabindex="13" name="news" type="radio" id="month" class="user-data__item_news_mark">
+                            </div> 
+
+                            <div class="user-data__item user-data__item_news">
+                                <label for="nonews" class="form__label">Don't send me news</label>
+                                <input tabindex="14" name="news" type="radio" id="nonews" class="user-data__item_news_mark">
+                            </div> 
+
+                        </div>
+                    </div>
+
+                    <div class="step-button">
+                        <a href="#step-three" class="button-link">
+                            <button tabindex="15" type="button">Next step</button>
+                        </a>
+                    </div>
+                </form>
+
+            </div>
+        </section>
+
+        <section class="step" id="step-three">
+            <div class="container">
+                <h2 class="subheader">
+                    Step 3/4 - Time to learn about your preferences?
+                </h2>
+
+                <div class="progress">
+                    <label for="progress__bar" class="form__label">Progress</label>
+                    <progress class="progress__bar" max="100" value="50">50%</progress>
+                    
+                </div>
+
+                <form action="#" method="get">
+                    <p class="description">
+                        What kind of items are you interested in offers on?
+                    </p>
+                    <div class="interested">
+                        
+                        <div class="interested__box">
+                            <div class="select_items interested__box__item">
+                                <label for="apparal" class="form__label">Apparal</label>
+                                <input tabindex="16" type="checkbox" checked name="apparal" value="yes" id="apparal" class="select">
+                            </div>
+                            <div class="select_items interested__box__item">
+                                <label for="accessories" class="form__label">Accessories</label>
+                                <input tabindex="17" type="checkbox" checked name="accessories" value="yes" id="accessories" class="select">
+                            </div>
+                            <div class="select_items interested__box__item">
+                                <label for="handbags" class="form__label">Handbags</label>
+                                <input tabindex="17" type="checkbox" name="handbags" value="yes" id="handbags" class="select">
+                            </div>
+                        </div>
+                        <div class="interested__box">
+                            <div class="select_items interested__box__item">
+                                <label for="jewely" class="form__label">Jewely</label>
+                                <input tabindex="18" type="checkbox" checked name="jewely" value="yes" id="jewely" class="select">
+                            </div>
+                            <div class="select_items interested__box__item">
+                                <label for="shoes" class="form__label">Shoes</label>
+                                <input tabindex="19" type="checkbox" checked name="shoes" value="yes" id="shoes" class="select">
+                            </div>
+                        </div>
+                    </div>
+
+                    <p class="description">
+                        Choose the images that best resemble your style
+                    </p>
+                    <div class="images">
+                        
+                        <div class="images__items">
+                            <img src="../src/image/1.jpg" alt="1">
+                            <div class="select_items">
+                                <label for="imageOne" class="form__label">Select</label>
+                                <input tabindex="20" type="checkbox" checked name="image" id="imageOne" class="select">
+                            </div>
+                        </div>
+                        
+                        <div class="images__items">
+                            <img src="../src/image/1.jpg" alt="2">
+                            <div class="select_items">
+                                <label for="imageTwo" class="form__label">Select</label>
+                                <input tabindex="21" type="checkbox"  name="image" id="imageTwo" class="select">
+                            </div>
+                        </div>
+
+                        <div class="images__items">
+                            <img src="../src/image/1.jpg" alt="3">
+                            <div class="select_items">
+                                <label for="imageThree" class="form__label">Select</label>
+                                <input tabindex="22" type="checkbox" checked name="image" id="imageThree" class="select">
+                            </div>
+                        </div>
+
+                        <div class="images__items">
+                            <img src="../src/image/1.jpg" alt="4">
+                            <div class="select_items">
+                                <label for="imageFour" class="form__label">Select</label>
+                                <input tabindex="23" type="checkbox" checked name="image" id="imageFour" class="select">
+                            </div>
+                        </div>
+
+                        <div class="images__items">
+                            <img src="../src/image/1.jpg" alt="5">
+                            <div class="select_items">
+                                <label for="imageFive" class="form__label">Select</label>
+                                <input tabindex="24" type="checkbox"  name="image" id="imageFive" class="select">
+                            </div>
+                        </div>
+
+                        <div class="images__items">
+                            <img src="../src/image/1.jpg" alt="6">
+                            <div class="select_items">
+                                <label for="imageSix" class="form__label">Select</label>
+                                <input tabindex="25" type="checkbox"  name="image" id="imageSix" class="select">
+                            </div>
+                        </div>
+
+                        <div class="images__items">
+                            <img src="../src/image/1.jpg" alt="7">
+                            <div class="select_items">
+                                <label for="imageSeven" class="form__label">Select</label>
+                                <input tabindex="26" type="checkbox" checked name="image" id="imageSeven" class="select">
+                            </div>
+                        </div>
+
+                        <div class="images__items">
+                            <img src="../src/image/1.jpg" alt="8">
+                            <div class="select_items">
+                                <label for="imageEight" class="form__label">Select</label>
+                                <input tabindex="27" type="checkbox" checked name="image" id="imageEight" class="select">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="step-button step-button-three">
+                        <a href="#step-four" class="button-link">
+                            <button tabindex="28" type="button">Submit</button>
+                        </a>
+                    </div>
+                </form>
+
+            </div>
+        </section>
+
+
+        <section class="step" id="step-four">
+            <div class="container">
+                <h2 class="subheader">
+                    Success
+                </h2>
+
+                <div class="progress">
+                    <label for="progress__bar" class="form__label">Progress</label>
+                    <progress class="progress__bar" max="100" value="100">100%</progress>
+                    
+                </div>
+            </div>
+        </section>
+
+    </main>
+</body>
+</html> 

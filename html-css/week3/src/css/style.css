@@ -1,0 +1,411 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+.container {
+    max-width: 1024px;  
+    margin: 0 auto;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 50px;
+
+}
+
+.logo {
+    height: 100px;
+    width: 150px;
+    background-color: #D8D8D8;
+    border: solid grey;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navigation {
+    height: 100px;
+    width: 400px;
+    background-color: #D8D8D8;
+    border: solid gray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.start {
+    text-decoration: none;
+}
+
+h1 {
+    margin-top: 70px;
+    font-size: 50px;
+    text-decoration: none;
+}
+
+.description {
+    margin: 50px 0;
+    font-size: 20px;
+    font-weight: 300;
+    line-height: 1.75;
+}
+
+.subheader {    
+    margin-top: 50px;
+    font-size: 40px;
+    font-weight: 800;    
+}
+
+.progress {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column; 
+       
+}
+
+.progress__bar {
+    margin-bottom: -50px;
+    height: 100px;
+    width: 100%;
+}
+
+
+.step .user-data {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.step .name {
+    display: flex;
+}
+
+.step .address {
+    display: flex;
+}
+
+.country {
+    margin-right: 45%;
+}
+
+.step .user-data__item {
+    margin-top: 25px;
+    margin-right: 18px;
+}
+
+.step .form__input {
+    height: 50px;
+    width: 300px;
+}
+
+.step .form__label {
+    margin-right: 25px;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+
+.step .profile-description {
+    margin-top: 50px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.step .form__textarea {
+    margin-right: 18px;
+    flex:0 0 74%;
+    height: 150px;
+}
+
+.step .profile-description__text {
+    margin-right: 90px;
+    margin-top: 20px;
+    font-size: 13px;
+    font-weight: 300;
+}
+
+.step .select_items {
+    display: flex;
+    align-items: center;
+}
+
+.step .shipping-address .select_items {
+    margin: 50px 0;
+}
+
+.step .select {
+    height: 50px;
+    width: 50px;
+}
+
+.step-button {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 100px;
+    margin-bottom: 50px;
+}
+
+.step .step-button-one {  
+    margin-top: -100px; 
+}
+
+
+button {
+    height: 100px;
+    width: 200px;
+    font-size: 20px;
+    font-weight: 600;
+}   
+
+.step {
+    display: none;
+}
+
+.step:target {
+    display: block;
+}
+
+.data-page-two {
+    height: 240px;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: flex-end;
+    flex-wrap: wrap;
+}
+
+.news .news__mark {
+    margin-top: 50px;
+    display: flex;
+}
+
+.user-data__item_news_mark {
+    margin: 0 65px 0 0;
+}
+
+.step-button {
+    margin-top: 100px;
+}
+
+.interested {
+    margin-left: 50px;
+    display: flex;
+}
+
+.interested__box__item {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 50px;
+    margin-right: 150px;
+}
+
+img {
+    height: 205px;
+    width: 205px;
+}
+
+.images {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.images__items {
+    margin-right: 50px;
+    margin-bottom: 50px;
+}
+.images .select_items {
+    margin: 30px 0;
+}
+
+.step .step-button-three {
+    margin-top: 0;
+}
+
+@media screen and (max-width: 1024px) {
+    .logo {
+        height: 60px;
+        width: 100px;
+    }
+    
+    .navigation {
+        height: 60px;
+        width: 300px;
+    }
+    
+    .container {
+        width: 768px;
+    }
+
+    h1 {
+        font-size: 40px;
+    }
+
+    .description {
+        font-size: 16px;
+    }
+    
+    .subheader {    
+        font-size: 30px;    
+    }
+
+    .step .user-data__item {
+        margin-right: 30px;
+    }
+
+    .country {
+        margin-right: 55%;
+    }
+     
+    .step .form__input {
+        height: 40px;
+        width: 250px;
+    }
+
+    .step .form__label {
+        font-size: 16px;
+        margin-right: 20px;
+    }
+
+    .step .form__textarea {
+        margin-right: 115px;
+        flex:0 0 66%;
+        height: 150px;
+    }
+    
+    .step .profile-description__text {
+        margin-right: 30px;
+        margin-top: 20px;
+        font-size: 13px;
+        font-weight: 300;
+    }
+    
+    .step .select {
+        height: 35px;
+        width: 35px;
+    }
+
+    button {
+        height: 60px;
+        width: 200px;
+        font-size: 16px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .container {
+        width: 320px;
+    }
+
+    .logo {
+        height: 40px;
+        width: 90px;
+    }
+    
+    .navigation {
+        height: 40px;
+        width: 180px;
+    }
+
+    h1 {
+        font-size: 20px;
+    }
+
+    .description {
+        font-size: 12px;
+        line-height: 1.5;
+        margin: 50px 0 20px 0;
+    }
+    
+    .subheader {    
+        font-size: 18px;    
+    }
+
+    .progress__bar {
+        height: 50px;
+    }
+
+    .step .name {
+        flex-wrap: wrap;
+    }
+    
+    .step .address {
+        flex-wrap: wrap;
+    }
+    
+    .country {
+        margin-right: 11.5%;
+    }
+
+    .step .profile-description {
+        flex-direction: column;
+    }
+
+    .step .form__textarea {
+        margin-right: 0;
+        margin-top: 20px;
+    }
+
+    .step .profile-description__text {
+    
+        margin-top: 20px;
+        font-size: 12px;
+        font-weight: 300;
+        line-height: 1.5;
+    }
+
+    .step .select {
+        height: 15px;
+        width: 15px;
+    }
+
+    button {
+        height: 40px;
+        width: 150px;
+    }
+
+    .step-button {
+        justify-content: center;     
+    }
+
+    .step .step-button-one {  
+        margin-top: -25px; 
+    }
+
+    .step .data-page-two {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .data-page-two {
+        height: 320px;
+       
+    }
+
+    .news .news__mark {
+        margin-top: 25px;
+        flex-direction: column;
+    }
+
+    .interested__box__item {
+        display: flex;
+        justify-content: flex-end;
+        margin: 30px 50px 30px -20px;
+    }
+
+    img {
+        height: 100px;
+        width: 100px;
+    }
+    .images .select_items {
+       margin: 5px 0 0 0;
+    }
+
+    .images__items {
+        margin-right: 25px;
+        margin-bottom: 25px;
+    }
+
+}
