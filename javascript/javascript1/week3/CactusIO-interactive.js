@@ -64,10 +64,10 @@ function calculationOfActivity(){
     let mostActivityTime = 0;
     let mostActivityApp;
     activities.forEach((item, i) => {
-      if (item.duration > mostActivityTime){
-        mostActivityTime = item.duration;
-      } else if (item.duration === mostActivityTime) {
+      if (item.duration === mostActivityTime) {
         mostActivityApp = item.activity;
+      }else if (item.duration > mostActivityTime){
+        mostActivityTime = item.duration;
       }
     });
     console.log(`User has spent the most time on ${mostActivityApp} - ${mostActivityTime} min.`);

@@ -21,7 +21,7 @@ const seriesDurations = [
   ];
   
   function logOutSeriesText() {
-    let age = 80;
+    const age = 80;
     ageInHours = age * 365 * 24;
     seriesDurations.forEach((i) => {
       let timeInHours = i.days * 24 + i.hours;

@@ -17,11 +17,12 @@ console.log(notes); // [{content: 'Pick up groceries', id: 1}, {content: 'Do lau
 
 function getNote(id) {
   // your code here
+  if (isNaN(id) || id === null) {
+    return `error`;
+  }
   for (let i = 0; i < notes.length; i++){
     if (id === notes[i].id) {
        return notes[i];
-    } else if (isNaN(id) || id === null) {
-      return `error`;
     }  
   }
 }
