@@ -14,6 +14,16 @@ const buttonStart = document.querySelector('.start'),
 
 clock.classList.add('timer');
 
+buttonStart.addEventListener('click', startGame);
+buttonRestart.addEventListener('click', restart);
+falseStart();
+
+const confettiSettings = { target: 'my-canvas' };
+const confetti = new ConfettiGenerator(confettiSettings);
+confetti.render();
+
+
+
 function buttonsFoGame(e) {
     if (e.code === 'KeyS') {
         pressS += 1;    
@@ -26,49 +36,38 @@ function buttonsFoGame(e) {
     scoreL.innerHTML = pressL;
 }
 
-
 function startGame(){
-    buttonStart.addEventListener('click', () => {
-        time = +input.value;
-        if (input.value == '') {
-            alert(`You don't set time of game`);
-            return;
-        } else if (!input.value.match(/[0-9]/)) {
-            alert(`You have to input number`);
-            return;
-        }
-        document.addEventListener('keyup', buttonsFoGame);
-        startTimer();
+    time = input.value;
+    if (input.value == '') {
+        alert(`You don't set time of game`);
+        return;
+    } else if (!input.value.match(/[0-9]/)) {
+        alert(`You have to input number`);
+        return;
+    }
+    document.addEventListener('keyup', buttonsFoGame);
+    startTimer();
 
-        setTimeout(function(){
-            document.removeEventListener('keyup', buttonsFoGame);
-        }, time * 1000);
-    });
+    setTimeout(function(){
+        document.removeEventListener('keyup', buttonsFoGame);
+    }, time * 1000);
 }
- 
-startGame();
 
 function restart(){
-    buttonRestart.addEventListener('click', function() {
-        pressL = 0;
-        pressS = 0;
-        scoreS.innerHTML = null;
-        scoreL.innerHTML = null;
-        input.value = null;
-        message.innerHTML = null;
-        konfetti.classList.remove('activePressS');
-        konfetti.classList.remove('activePressL');
-    });
+    pressL = 0;
+    pressS = 0;
+    scoreS.innerHTML = null;
+    scoreL.innerHTML = null;
+    input.value = null;
+    message.innerHTML = null;
+    konfetti.classList.remove('activePressS');
+    konfetti.classList.remove('activePressL');
 }
-
-restart();
 
 function startTimer() {
     
     let timer = input.value;
     const countdownTimer = setInterval(() => {
-        
-        
         message.innerHTML = timer - 1;
         timer -= 1;
         if (timer <= 0) {
@@ -84,8 +83,7 @@ function startTimer() {
             } else {
                 message.innerHTML = `DRAW`;
             }
-        }
-            
+        }       
     }, 1000);
 }
 
@@ -100,9 +98,3 @@ function falseStart() {
         document.removeEventListener('keydown', focus);
     });
 }
-
-falseStart();
-
-const confettiSettings = { target: 'my-canvas' };
-const confetti = new ConfettiGenerator(confettiSettings);
-confetti.render();
