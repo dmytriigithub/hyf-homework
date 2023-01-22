@@ -62,6 +62,7 @@ function restart(){
     message.innerHTML = null;
     konfetti.classList.remove('activePressS');
     konfetti.classList.remove('activePressL');
+    falseStart();
 }
 
 function startTimer() {
@@ -87,8 +88,10 @@ function startTimer() {
     }, 1000);
 }
 
-function focus(){
+function focus(e){
+    if (e.code === 'KeyS' || e.code === 'KeyL') {
         alert(`Too early`);
+    }
 }
 
 function falseStart() { 
