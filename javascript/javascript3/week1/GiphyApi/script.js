@@ -26,7 +26,7 @@ function showGifs(){
 
 }
 
-numberOfGifs.oninput = function(e) {
+numberOfGifs.oninput = function() {
   limit = numberOfGifs.value;
   showGifs();
 };

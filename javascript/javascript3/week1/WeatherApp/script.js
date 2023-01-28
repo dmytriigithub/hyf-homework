@@ -1,5 +1,5 @@
 const list = document.querySelector('ul'),
-      btnOk = document.querySelector('.ok'),
+      btnSearch = document.querySelector('.search'),
       btnCurrentPosition = document.querySelector('.currentPosition');
 
 let input = document.querySelector('input'),
@@ -8,7 +8,7 @@ let input = document.querySelector('input'),
     
 
 
-btnOk.addEventListener('click', wether);
+btnSearch.addEventListener('click', wether);
 btnCurrentPosition.addEventListener('click', currentWeather);
 
 getCurrentPosition();
