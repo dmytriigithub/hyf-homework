@@ -34,8 +34,13 @@ fetch('https://open.er-api.com/v6/latest/USD')
                     rateFrom = data.rates[key];
                 } else if (selectTo.value === key) {
                     rateTo = data.rates[key];
-                }
-                inputConvertTo.value = (((+inputConvertFrom.value / rateFrom)) * rateTo).toFixed(2);
+                } 
+
+                inputConvertTo.value = ((+inputConvertFrom.value / rateFrom) * rateTo).toFixed(2);
+                
+            if (inputConvertFrom.value === '') {
+                inputConvertTo.value = '';
+            }
             }
         }
 
@@ -48,9 +53,16 @@ fetch('https://open.er-api.com/v6/latest/USD')
                 } else if (selectTo.value === key) {
                     rateTo = data.rates[key];
                 }
-                inputConvertFrom.value = (((+inputConvertTo.value / rateTo)) * rateFrom).toFixed(2);
+
+                inputConvertFrom.value = ((+inputConvertTo.value / rateTo) * rateFrom).toFixed(2);
+
+            if (inputConvertTo.value === '') {
+                inputConvertFrom.value = '';
+            }
             }
         }
+
+        currencyCalculator();
 
         inputConvertFrom.addEventListener('input',currencyCalculator);
         inputConvertTo.addEventListener('input', mirrorCurrencyCalculator);
