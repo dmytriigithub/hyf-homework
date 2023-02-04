@@ -3,30 +3,59 @@ const inputConvertFrom = document.querySelector('#from-input'),
       selectFrom = document.querySelector('#from-select'),
       selectTo = document.querySelector('#to-select');
 
+const url = 'https://open.er-api.com/v6/latest/USD';
+
+createOptions();
+currencyCalculator();
+
+inputConvertFrom.addEventListener('input',currencyCalculator);
+inputConvertTo.addEventListener('input', mirrorCurrencyCalculator);
+
+selectFrom.addEventListener('input',currencyCalculator);
+selectTo.addEventListener('input', currencyCalculator);
 
 
-fetch('https://open.er-api.com/v6/latest/USD')
-    .then(response => response.json())
-    .then((data) => {
-        console.log(data);
-        for (const key in data.rates) {
-            const convertFromCurrency = document.createElement('option');
-            convertFromCurrency.innerHTML = key;
-            selectFrom.appendChild(convertFromCurrency);
-            if (key.includes('EUR')) {
-                convertFromCurrency.setAttribute('selected', true);
+async function getResource(url) {
+    let response = await fetch(url);
+
+    if (!response.ok) {
+        throw new Error(`Could not fetch ${url}, status: ${response.status}`);
+    }
+
+    return await response.json();
+}
+
+function createOptions() {
+    getResource(url)
+        .then(data => {
+            for (const key in data.rates) {
+                const convertFromCurrency = document.createElement('option');
+                convertFromCurrency.innerHTML = key;
+                selectFrom.appendChild(convertFromCurrency);
+                if (key.includes('EUR')) {
+                    convertFromCurrency.setAttribute('selected', true);
+                }
+                
+
+                const convertToCurrency = document.createElement('option');
+                convertToCurrency.innerHTML = key;
+                selectTo.appendChild(convertToCurrency);
+                if (key.includes('DKK')) {
+                    convertToCurrency.setAttribute('selected', true);
+                }
             }
-            
+        });
 
-            const convertToCurrency = document.createElement('option');
-            convertToCurrency.innerHTML = key;
-            selectTo.appendChild(convertToCurrency);
-            if (key.includes('DKK')) {
-                convertToCurrency.setAttribute('selected', true);
+}
+
+function currencyCalculator() {
+    getResource(url)
+        .then(data => {
+            if (inputConvertFrom.value === '') {
+                inputConvertTo.value = '';
+                return;
             }
-        }
 
-        function currencyCalculator() {
             let rateFrom,
                 rateTo;
             for (const key in data.rates) {
@@ -36,15 +65,19 @@ fetch('https://open.er-api.com/v6/latest/USD')
                     rateTo = data.rates[key];
                 } 
 
-                inputConvertTo.value = ((+inputConvertFrom.value / rateFrom) * rateTo).toFixed(2);
-                
-            if (inputConvertFrom.value === '') {
-                inputConvertTo.value = '';
+                inputConvertTo.value = (((+inputConvertFrom.value / rateFrom)) * rateTo).toFixed(2);
             }
-            }
-        }
+        });
+}
 
-        function mirrorCurrencyCalculator() {
+function mirrorCurrencyCalculator() {
+    getResource(url)
+        .then(data => {
+            if (inputConvertTo.value === '') {
+                inputConvertFrom.value = '';
+                return;
+            }
+            
             let rateFrom,
                 rateTo;
             for (const key in data.rates) {
@@ -54,25 +87,7 @@ fetch('https://open.er-api.com/v6/latest/USD')
                     rateTo = data.rates[key];
                 }
 
-                inputConvertFrom.value = ((+inputConvertTo.value / rateTo) * rateFrom).toFixed(2);
-
-            if (inputConvertTo.value === '') {
-                inputConvertFrom.value = '';
+                inputConvertFrom.value = (((+inputConvertTo.value / rateTo)) * rateFrom).toFixed(2);
             }
-            }
-        }
-
-        currencyCalculator();
-
-        inputConvertFrom.addEventListener('input',currencyCalculator);
-        inputConvertTo.addEventListener('input', mirrorCurrencyCalculator);
-
-        selectFrom.addEventListener('input',currencyCalculator);
-        selectTo.addEventListener('input', currencyCalculator);
-
-    })
-    .catch(error => {
-        console.log(error);
-      });
-
-    
+        });
+}
