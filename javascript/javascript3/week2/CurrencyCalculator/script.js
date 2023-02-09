@@ -44,6 +44,9 @@ function createOptions() {
                     convertToCurrency.setAttribute('selected', true);
                 }
             }
+        })
+        .catch(error => {
+            console.error(error);
         });
 
 }
@@ -67,6 +70,9 @@ function currencyCalculator() {
 
                 inputConvertTo.value = (((+inputConvertFrom.value / rateFrom)) * rateTo).toFixed(2);
             }
+        })
+        .catch(error => {
+            console.error(error);
         });
 }
 
@@ -89,5 +95,8 @@ function mirrorCurrencyCalculator() {
 
                 inputConvertFrom.value = (((+inputConvertTo.value / rateTo)) * rateFrom).toFixed(2);
             }
+        })
+        .catch(error => {
+            console.error(error);
         });
 }
