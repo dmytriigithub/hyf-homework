@@ -1,0 +1,39 @@
+body {
+    background: #93cedf;
+  }
+
+h1 {
+    text-align: center;
+    margin-top: 100px;
+    color: #07507a;
+}
+
+.container {
+    margin-top: 100px;
+    display: flex;
+    justify-content: center;
+}
+
+
+input {
+    height: 28px;
+    width: 150px;
+    
+}
+
+select {
+    height: 33px;
+    width: 150px;
+    display: inline-block;
+    margin: 0 20px;
+    background-color: #fff;
+    border-radius: 2px;
+    box-shadow: 0 0 2px rgb(204, 204, 204);
+    transition: all .5s ease;
+    position: relative;
+    font-size: 14px;
+    color: #474747;
+    text-align: left;
+    cursor: pointer;
+    
+  }
