@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="block_buttons">
+            <button class="sing">Sing Up</button>
+            <button class="log">Log In</button>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="block_screenshot">
+            <input class="postInput" type="text" name="url" placeholder="Url of page for screenshot">
+    
+            <button class="post">Get Screenshot</button>
+            <button class="clearCurrentList">Clear Screenshots</button>
+            <button class="list">Get List</button>
+            <button class="hideList">Hide List</button>
+            <button class="deleteAllScreenshots">Delete All</button>
+            <button class="idDeleteScreenshots">Delete wit ID</button>
+    
+            <input class="deleteInput" type="text" name="delete" placeholder="Delete screenshot with Id">
+        </div>
+        
+    </div>
+
+    <div class="container">
+        <div class="block_singUp">
+            <form class="form">
+                <h2>Sing up</h2>
+                <div>
+                    <label for="email">Email</label>
+                    <input class="email" name="email" type="email" placeholder="Email">
+                </div>
+        
+                <div>
+                    <label for="password">Password</label>
+                    <input class="password" name="password" type="password" placeholder="Password">
+                </div>
+                <button class="singUp" type="submit">Sing up</button>
+            </form>
+
+            <button class="getUsers">Get users</button>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="block_logIn">
+            <form class="formLog">
+                <h2>Log in</h2>
+                <div>
+                    <label for="email">Email</label>
+                    <input class="emailLogIn" name="email" type="email" placeholder="Email">
+                </div>
+        
+                <div>
+                    <label for="password">Password</label>
+                    <input class="passwordLogIn" name="password" type="password" placeholder="Password">
+                </div>
+                <button class="logIn">Log in</button>
+            </form>
+            <input class="deleteInputUser" type="text" name="delete" placeholder="Delete user with Id">
+
+            
+            <button class="getUsersLog">Get users</button>
+            <button class="deleteAllUsers">Delete All</button>
+            <button class="idDeleteUsers">Delete wit ID</button>
+            
+        </div>
+    </div>
+    
+
+    <div class="container">
+        <div class="block_list">
+            <ol class="currentList" ></ol>
+            <ol class="fullCollection" ></ol>
+        </div>
+    </div>
+    
+    <script src="main.js"></script>
+    <script src="user.js"></script>
+    <script src="screenshot.js"></script>
+    
+</body>
+</html>
