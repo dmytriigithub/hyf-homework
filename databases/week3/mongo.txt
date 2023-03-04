@@ -1,0 +1,213 @@
+use dbweek3
+---------------------------------------------
+
+db.createCollection("Meal")
+
+db.createCollection("Reservation")
+
+db.createCollection("Review")
+
+--------------------------------------------------------------
+-------------------------------------------------------------- Get all
+
+db.Meal.find()
+db.Reservation.find()
+db.Review.find()
+
+------------------------------------------------------------- Add a new
+
+db.Meal.insertMany([
+    {
+        "_id": 1,
+        "meal_titl": "Prepare an authentic Argentine asado with stunning views of Avenido Cervino",
+        "description": null,
+        "location": "Argentina",
+        "date": null,
+        "max_reservations": 4,
+        "price": 42,
+        "created_date": null 
+    },
+
+    {
+        "_id": 2,
+        "meal_titl": "Sushi and Japanese recipes taught by a professional chef",
+        "description": null,
+        "location": "Japan",
+        "date": null,
+        "max_reservations": 10,
+        "price": 138,
+        "created_date": null
+    }
+])
+
+db.Reservation.insertMany([
+    {
+        "_id": 1,
+        "number_of_guests": 3,
+        "meal_id": 1,
+        "created_date": null,
+        "contact_phonenumber": 55555555,
+        "contact_name": "John",
+        "contact_email": "email@gmail.com"
+    },
+
+    {
+        "_id": 2,
+        "number_of_guests": 6,
+        "meal_id": 2,
+        "created_date": null,
+        "contact_phonenumber": 77777777,
+        "contact_name": "Kolya",
+        "contact_email": null
+    }
+])
+
+db.Review.insertMany([
+    {
+        "_id": 1,
+        "review_titl": "Argentinas meal",
+        "description": "I loved the asado on the patio, and the view from Nicolas' apartment is amazing. It's one of my favorite memories from my time in Buenos Aires! Nicolas is an easy-going, friendly cook, and his apartment is the perfect date night location. Nicolas was warm and welcoming from beginning to end, and that feeling of simple goodness carries into the food. It would be easy to spend a long time chatting on the patio, except that he has so many recommendations of what to do next in the area (ask about PIBÄ).",
+        "meal_id": 1,
+        "stars": 5,
+        "created_date": ISODate("2020-05-18T14:10:30.000Z")  
+    },
+
+    {
+        "_id": 2,
+        "review_titl": "Japanese meal",
+        "description": "I booked a cooking class with Furu through Traveling Spoon. He offers a variety of dishes to learn. I was most curious about Tamago-yaki, the Japanese omelette. Furu was a great teacher; rolling and flipping the Tamago-yaki is much more difficult than it appears! We also prepared Japanese hot pot and soba for the rest of the meal. Great experience and delicious food!",
+        "meal_id": 2,
+        "stars": 7,
+        "created_date": ISODate("2021-01-15T06:31:15.000Z")
+    }
+])
+
+------------------------------------------------------------------------- Get with any id, fx 1
+
+db.Meal.find({_id: 1})
+db.Reservation.find({_id: 1})
+db.Review.find({_id: 1})
+
+-----------------------------------------------------------------------------Update with any id, fx 1. Update any attribute fx the title or multiple attributes
+
+db.Meal.updateOne({_id: 1}, {$set: {date: new ISODate("2022-05-18T14:10:30.000Z")}})
+db.Reservation.updateOne({_id: 1}, {$inc: {number_of_guests: 1}})
+db.Review.updateOne({_id: 2}, {$inc: {stars: -1}})
+
+--------------------------------------------------------------------- Delete with any id, fx 1
+
+db.Meal.deleteOne({_id: 1})
+db.Reservation.deleteOne({_id: 1})
+db.Review.deleteOne({_id: 1})
+
+
+---------------------------------------------------------------- Get meals that has a price smaller than a specific price fx 90
+
+db.Meal.find({price: {$lt: 50}})
+
+----------------------------------------------------------------Get meals that still has available reservations
+
+db.Meal.updateMany({}, {$set: {status: "available"}})
+db.Meal.find({status: { $eq: "available"}})
+
+------------------------------------------------------------------ Get meals that partially match a title. Rød grød med will match the meal with the title Rød grød med fløde
+
+db.Meal.find( { meal_titl: { $in: [ /^Sushi/] } } )
+
+----------------------------------------------------------------------- Get meals that has been created between two dates
+
+db.Meal.updateOne({_id: 1}, {$set: {created_date: new ISODate("2022-04-18")}})
+db.Meal.updateOne({_id: 2}, {$set: {created_date: new ISODate("2022-08-28")}})
+
+
+db.Meal.find({created_date: {$gte:ISODate("2022-03-01"), $lt:ISODate("2022-06-01")}})
+
+------------------------------------------------------------------------- Get only specific number of meals fx return only 5 meals
+
+db.Meal.find().limit(1)
+
+------------------------------------------------------------------------------Get the meals that have good reviews
+
+db.Meal.aggregate( [
+    {
+        $lookup:
+        {
+            from: "Review",
+            localField: "_id",
+            foreignField: "meal_id",
+            as: "stars"
+        }
+    },
+
+    {
+        $project:
+        {
+            "_id": 1,
+            "meal_titl": 1,
+            "location": 1,
+            "review_titl": 1,
+            "stars": "$stars.stars"
+        }
+    },
+
+    {
+    $match: { stars: { $gt: 5 } }
+    },
+
+    {
+        $unwind: "$stars"
+    }
+    
+] )
+
+------------------------------------------------------------------------Get reservations for a specific meal sorted by created_date
+
+db.Reservation.updateOne({_id: 1}, {$set: {created_date: new ISODate("2022-04-18")}})
+
+db.Reservation.insertOne(
+    {
+        "_id": 3,
+        "number_of_guests": 2,
+        "meal_id": 1,
+        "created_date": new ISODate("2023-02-18"),
+        "contact_phonenumber": 333333333,
+        "contact_name": "Jack",
+        "contact_email": "jack@gmail.com"
+    }
+)
+
+db.Reservation.find({meal_id: 1}).sort({created_date: -1})
+
+----------------------------------------------------------------------------Sort all meals by average number of stars in the reviews
+
+db.Meal.aggregate( [
+    {
+        $lookup:
+        {
+            from: "Review",
+            localField: "_id",
+            foreignField: "meal_id",
+            as: "stars"
+        }
+    },
+
+    {
+        $project:
+        {
+            "_id": 1,
+            "meal_titl": 1,
+            "location": 1,
+            "review_titl": 1,
+            "stars": "$stars.stars"
+        }
+    },
+
+    {
+      $sort: { stars: 1 }
+    },
+
+    {
+        $unwind: "$stars"
+    }
+    
+] )
