@@ -6,7 +6,7 @@ USE school;
 
 -- Create the Class table
 CREATE TABLE Class (
-  id INT PRIMARY KEY,
+  id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
   name VARCHAR(50) NOT NULL,
   begins DATE,
   ends DATE
@@ -14,7 +14,7 @@ CREATE TABLE Class (
 
 -- Create the Student table
 CREATE TABLE Student (
-  id INT PRIMARY KEY,
+  id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
   name VARCHAR(50) NOT NULL,
   email VARCHAR(50),
   phone VARCHAR(20),
