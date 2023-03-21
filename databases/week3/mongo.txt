@@ -114,6 +114,8 @@ db.Meal.find({status: { $eq: "available"}})
 
 db.Meal.find( { meal_titl: { $in: [ /^Sushi/] } } )
 
+db.Meal.find({ meal_titl: { $regex: /sushi/i } }) - this means "sushi" can be found anywhere in the string and it's case-insensitive.
+
 ----------------------------------------------------------------------- Get meals that has been created between two dates
 
 db.Meal.updateOne({_id: 1}, {$set: {created_date: new ISODate("2022-04-18")}})
@@ -210,4 +212,46 @@ db.Meal.aggregate( [
         $unwind: "$stars"
     }
     
+] )
+
+
+db.Meal.aggregate( [
+    {
+        $lookup: {
+        from: "Review",
+        localField: "_id",
+        foreignField: "meal_id",
+        as: "reviews"
+        }
+    },
+
+    {
+        $project: {
+        "_id": 1,
+        "meal_titl": 1,
+        "location": 1,
+        "review_titl": 1,
+        "stars": "$reviews.stars"
+        }
+    },
+
+    {
+        $unwind: "$stars"
+    },
+
+    {
+        $match: {
+        "reviews": { $ne: [] } //this is ensures that meals without reviews are excluded from the result
+        }
+    },
+
+    {
+        $addFields: {
+        "avgStars": { $avg: "$stars" } // calculate average rating but returns null value for meals without rating (if $match hasn't been added)
+        }
+    },
+
+        {
+        $sort: { "avgStars": -1 }
+        }
 ] )

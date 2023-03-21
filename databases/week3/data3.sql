@@ -11,8 +11,8 @@ CREATE TABLE Meal (
 	description TEXT,
 	location VARCHAR(255),
 	date DATETIME,
-	max_reservations INT,
-	price DECIMAL,
+	max_reservations INT NOT NULL,
+	price DECIMAL NOT NULL,
 	created_date DATE
 	);
 
