@@ -25,6 +25,10 @@ class TodoTimer extends Component {
     componentDidMount() {
         this.timerNumber()
     }
+
+    componentWillUnmount() {
+        clearInterval(this.timerNumber)
+    }
    
 
     render(){
