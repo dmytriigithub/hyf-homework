@@ -3,12 +3,10 @@ import { Component } from 'react';
 import './todoForm.css';
 
 class TodoForm extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-           description: ""
-        }
+    state = {
+        description: ""
     }
+    
 
     onValueChange = (e) => {
         this.setState({

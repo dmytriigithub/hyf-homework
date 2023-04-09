@@ -10,13 +10,12 @@ import todos from '../../todos';
 
 class App extends Component {
 
-  constructor(props) {
-    super(props);
-    this.state  = {
-      todos:todos
-    }
-    this.maxId = 4;
+  state  = {
+    todos:todos
   }
+  
+  maxId = 4;
+  
 
   deleteItem = (id) => {
     this.setState(({todos}) => {

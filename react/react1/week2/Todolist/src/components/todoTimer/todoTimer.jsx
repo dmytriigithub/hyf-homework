@@ -2,20 +2,16 @@ import { Component } from 'react';
 
 
 class TodoTimer extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-           timer: 0
-        }
+    state = {
+        timer: 0
     }
 
 
     timerNumber = () => {
-        let i = 0;
+        
         setInterval(() => {
-            i += 1;
             this.setState({
-                timer: i
+                timer: this.state.timer++
             })
          
         }, 1000)
