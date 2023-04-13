@@ -32,7 +32,9 @@ router.get('/', async (req, res) => {
     res.send(document);
   }
   catch (error) {
-    throw error;
+    res.status(500).json({
+      error: 'Internal Server Error'
+    });
   }
 });
 
@@ -50,7 +52,9 @@ router.get('/document/:id', async (req,res)=>{
     res.json(response)
   }
   catch (error) {
-    throw error;
+    res.status(500).json({
+      error: 'Internal Server Error'
+    });
   }
   
 })
@@ -105,7 +109,9 @@ router.post('/', async (req, res) => {
     return res.status(400).json({ error: 'Either q or fields must be provided.' });
   }
   catch (error) {
-    throw error;
+    res.status(500).json({
+      error: 'Internal Server Error'
+    });
   }
  
 });
