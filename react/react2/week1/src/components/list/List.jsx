@@ -11,7 +11,7 @@ const List = () => {
 
   return (
     <>
-      {results.length?  results.map((user) => <Item key={user.id}>{user.login}</Item>) : null}
+      {results.length?  <ul>{results.map((user) => <Item key={user.id}>{user.login}</Item>)}</ul> : null}
     </>
   );
 }

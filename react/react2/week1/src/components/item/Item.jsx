@@ -2,9 +2,7 @@ import './Item.css';
 
 const Item = (props) => {
     return (
-        <ul className="list">
-            <li>{props.children}</li>
-        </ul>
+        <li className="list" key={props.id}>{props.children}</li>
     )
 }
 
