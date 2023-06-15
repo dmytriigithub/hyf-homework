@@ -1,0 +1,41 @@
+.todo-list-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    color: #585459;
+}
+
+::marker {
+    color: #585459;  
+}
+
+.complete {
+  text-decoration: line-through;
+}
+
+.btn-delete {
+    height: 35px;
+    width: 100px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    display: block;
+    background-color: #d54444;
+    font-size: 12px;
+    font-weight: 300px;
+    color: white;
+    text-transform: uppercase;
+    border-radius: 5px;
+    box-shadow: 0 5px #dc7373;
+    
+  }
+  
+  .btn-delete:hover {
+    box-shadow: 0 4px #dc7373;
+    top: 2px;
+  }
+  
+  .btn-delete:active {
+    box-shadow: none;
+    top: 6px;
+  }
